@@ -6,7 +6,7 @@
   >
     <div class="container">
       <div class="copyright">
-        &copy; {{ year }}, Designed and Coded by
+        &copy; {{ year }},
         <a href="https://github.com/rishabhbatra10" target="_blank" rel="noopener"
           >Rishabh Batra.</a
         >

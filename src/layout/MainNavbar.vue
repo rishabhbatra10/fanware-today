@@ -23,26 +23,80 @@
       </el-popover> -->
     </template>
     <template slot="navbar-menu">
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          href=""
-          target="#"
-        >
-          <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-          <p>About Us</p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          href=""
-          target="#"
-        >
-          <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-          <p>Blogs</p>
-        </a>
-      </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="#home"
+            target=""
+          >
+            <i class="fas fa-home w3-large"></i>
+            <p>&nbsp;Home</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="#work"
+            target=""
+          >
+            <i class="fas fa-briefcase w3-large"></i>
+            <p>&nbsp;Work</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="#influencers"
+            target=""
+          >
+            <svg class="svg-icon">
+              <use xlink:href="@/assets/icons/selfie.svg#Capa_1"></use>
+            </svg>
+            <p>&nbsp;&nbsp;Influencers</p>
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a
+            class="nav-link"
+            href="#news"
+            target=""
+          >
+            <i class="far fa-address-card w3-large"></i>
+            <p>&nbsp;News</p>
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="#about"
+            target=""
+          >
+           <i class="fas fa-info-circle w3-large"></i>
+            <p>&nbsp;About</p>
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a
+            class="nav-link"
+            href="#blogs"
+            target=""
+          >
+            <i class="fab fa-blogger"></i>
+            <p>Blogs</p>
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="#contact"
+            target=""
+          >
+            <i class="fas fa-id-badge w3-large"></i>
+            <p>&nbsp;&nbsp;Contact</p>
+          </a>
+        </li>
       <!-- <drop-down
         tag="li"
         title="Components"
@@ -87,7 +141,7 @@
         </a>
       </li> -->
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a
           class="nav-link"
           rel="tooltip"
@@ -125,7 +179,7 @@
           <i class="fab fa-instagram"></i>
           <p class="d-lg-none d-xl-none">Instagram</p>
         </a>
-      </li>
+      </li> -->
     </template>
   </navbar>
 </template>
@@ -149,4 +203,5 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+</style>

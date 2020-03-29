@@ -21,45 +21,10 @@
             <card class="card-signup" header-classes="text-center" color="orange">
               <template slot="header">
               </template>
-              <template v-if="isInfluencer">
-                  <fg-input
-                    class="no-border"
-                    placeholder="Your Name..."
-                    addon-left-icon="now-ui-icons users_circle-08"
-                  >
-                  </fg-input>
-
-                  <fg-input
-                    class="no-border"
-                    placeholder="Email"
-                    addon-left-icon="now-ui-icons ui-1_email-85"
-                  >
-                  </fg-input>
-
-                  <fg-input
-                    class="no-border"
-                    placeholder="Instagram Handle"
-                    addon-left-icon="fab fa-instagram"
-                  >
-                  </fg-input>
-
-                  <fg-input
-                    class="no-border"
-                    placeholder="Youtube Channel"
-                    addon-left-icon="fab fa-youtube"
-                  >
-                  </fg-input>
-
-                  <fg-input
-                    class="no-border"
-                    placeholder="Whatsapp Phone"
-                    addon-left-icon="fab fa-whatsapp"
-                  >
-                  </fg-input>
-
-                </template>
+                <InfluencerForm v-if="isInfluencer" v-model="payload" :payload="payload" />
+                <ClientForm v-if="isClient" v-model="payload" :payload="payload" />
                 <div class="card-footer text-center">
-                  <n-button type="neutral" round size="lg">Get Started</n-button>
+                  <n-button type="neutral" round size="lg" @click="submitForm()" >Get Started</n-button>
                 </div>
             </card>
           </div>
@@ -97,22 +62,17 @@
         </div>
       </div>
     </div>
-    <div class="section">
-      <div class="container text-center">
-        <div class="row justify-content-md-center">
-          <div class="col-md-12 col-lg-8">
-            <h2 class="title">About Us</h2>
-            <h5 class="description">
-              Content to be added 
-            </h5>
-          </div>
-        </div>
-      </div>
-    </div>
+    <HomeSection id="home" />
+    <WorkSection id="work" />
+    <NucleoIconsSection id="influencers" />
+    <!-- <SlideGroupSection id="blogs" /> -->
+    <AboutSection id="about" />
+    <ContactSection id="contact" />
   </div>
 </template>
 <script>
 import { Parallax } from '@/components';
+import AboutSection from './components/AboutSection.vue';
 import BasicElements from './components/BasicElementsSection';
 import Navigation from './components/Navigation';
 import TabsSection from './components/Tabs';
@@ -123,15 +83,22 @@ import JavascriptComponents from './components/JavascriptComponents';
 import CarouselSection from './components/CarouselSection';
 import NucleoIconsSection from './components/NucleoIconsSection';
 import SignupForm from './components/SignupForm';
+import ClientForm from './components/ClientForm';
+import InfluencerForm from './components/InfluencerForm';
 import ExamplesSection from './components/ExamplesSection';
 import DownloadSection from './components/DownloadSection';
-import { Card, FormGroupInput, Button, Tabs, TabPane } from '@/components';
+import SlideGroupSection from './components/SlideGroupSection';
+import WorkSection from './components/WorkSection.vue';
+import HomeSection from './components/HomeSection.vue';
+import ContactSection from './components/ContactSection.vue';
+import { Card, FormGroupInput, FormGroupTextArea, Button, Tabs, TabPane } from '@/components';
 
 export default {
   name: 'index',
   bodyClass: 'index-page',
   components: {
     Parallax,
+    AboutSection,
     BasicElements,
     Navigation,
     TabsSection,
@@ -144,37 +111,66 @@ export default {
     SignupForm,
     ExamplesSection,
     DownloadSection,
+    SlideGroupSection,
     Card,
     [Button.name]: Button,
-    [FormGroupInput.name]: FormGroupInput
+    [FormGroupInput.name]: FormGroupInput,
+    [FormGroupTextArea.name]: FormGroupTextArea,
+    ClientForm,
+    InfluencerForm,
+    WorkSection,
+    HomeSection,
+    ContactSection
   },
   data: function() {
     return {
     isInfluencer: true,
     isClient: false,
     infType: "primary",
-    clientType: "neutral"
+    clientType: "neutral",
+    payload: {},
+    loading: false
     }
   },
   methods: {
     toggleInfluencer: function() {
-      this.isClient = false;
-      this.isInfluencer = true;
-      this.clientType = "neutral"
-      this.infType = "primary";
+      this.isClient = false; // Switching off client view
+      this.isInfluencer = true; // Switching on influencer view
+      this.clientType = "neutral" // changing client button colors
+      this.infType = "primary"; // chaning influencer button colors
+      this.clientPayload = this.payload // storing clientPayload
+      if (this.influencerPayload) { // if influencer payload exists then payload is set to influencer payload
+        this.payload = this.influencerPayload
+      }
+      else {
+        this.payload = {}; // else payload is set to empty object
+      }
     },
     toggleClient: function() {
-      this.isInfluencer = false;
+      this.isInfluencer = false; 
       this.isClient = true;
       this.infType = "neutral";
       this.clientType = "primary";
+      this.influencerPayload = this.payload
+      if (this.clientPayload) {
+        this.payload = this.clientPayload
+      }
+      else {
+        this.payload = {};
+      }
+    },
+    submitForm: function() {
+      this.loading = true; // setting loading state true
+      console.log("submitting form with payload: ", payload)
+
+      this.loading = false // setting loading state false
     }
   }
 };
 </script>
 <style>
 .h1-seo {
-  color: #004c4c !important;
+  color: #2C6975 !important;
 }
 .custom-button{
   margin-right: 5% !important;
