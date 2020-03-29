@@ -495,8 +495,45 @@
   padding-top: 0;
 }
 
+.section-nucleo-icons {
+  background: #CDE0C9;
+}
+
+.section-work {
+  background: #6BB2A0;
+  color: #ffffff;
+}
+
+.section-work .description {
+  color: #ffffff;
+}
+
 .section-images {
   padding-bottom: 0;
+}
+
+.section-home{
+  background: #E0ECDE;
+  color: #2C6975;
+}
+
+.section-home .description {
+  color: #6BB2A0;
+}
+
+.section-contact {
+  background: #2C6975;
+  color: #ffffff;
+}
+
+.section-contact .description {
+  color: #ffffff;
+}
+
+.svg-icon {
+  fill: #ffffff;
+  height: 14px;
+  width: 14px;
 }
 
 @media screen and (max-width: 991px) {
