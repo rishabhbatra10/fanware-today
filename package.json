@@ -10,20 +10,26 @@
   "dependencies": {
     "bootstrap": "^4.3.0",
     "element-ui": "^2.5.4",
+    "jquery": "^1.9.1",
+    "material-design-icons-iconfont": "^5.0.1",
     "nouislider": "^11.1.0",
+    "popper.js": "^1.16.1",
     "vue": "^2.6.6",
     "vue-lazy-load": "^0.0.7",
     "vue-lazyload": "^1.2.6",
     "vue-router": "^3.0.2",
-    "vue2-transitions": "^0.2.3"
+    "vue2-transitions": "^0.2.3",
+    "vuetify": "^2.2.19"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-plugin-eslint": "^3.4.0",
     "@vue/cli-service": "^3.4.0",
     "babel-plugin-component": "^1.1.1",
-    "node-sass": "^4.11.0",
-    "sass-loader": "^7.1.0",
+    "deepmerge": "^4.2.2",
+    "fibers": "^4.0.2",
+    "sass": "^1.26.3",
+    "sass-loader": "^7.3.1",
     "vue-template-compiler": "^2.6.6"
   }
 }
