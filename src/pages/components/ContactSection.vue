@@ -5,7 +5,9 @@
           <div class="col-md-12 col-lg-8">
             <h2 class="title">Contact</h2>
             <h5 class="description">
-              Content to be added 
+              Address 
+              Whatsapp us on Phone number 
+              Shoot an email on <a>hello@fanwaretoday.in</a>
             </h5>
           </div>
         </div>

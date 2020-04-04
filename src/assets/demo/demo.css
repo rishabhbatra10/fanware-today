@@ -499,6 +499,10 @@
   background: #CDE0C9;
 }
 
+.section-nucleo-icons .description {
+  color: #000000;
+}
+
 .section-work {
   background: #6BB2A0;
   color: #ffffff;
@@ -512,13 +516,18 @@
   padding-bottom: 0;
 }
 
+.section-case-studies{
+  background: #D9DDDC;
+  color: #2C6975;
+}
+
 .section-home{
   background: #E0ECDE;
   color: #2C6975;
 }
 
 .section-home .description {
-  color: #6BB2A0;
+  color: #2C6975;
 }
 
 .section-contact {

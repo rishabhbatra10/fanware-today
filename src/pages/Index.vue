@@ -1,47 +1,54 @@
 <template>
   <div>
-    <div class="page-header custom-filter" filter-color="primary">
+    <div class="page-header" filter-color="primary">
       <parallax
         class="page-header-image"
         style="background-image:url('img/header.jpg')"
       >
       </parallax>
-      <div class="container">
+      <div class="container" id="home">
         <div class="row">
-          <div class="col-sm content-center">
+          <div class="col-sm">
           <!-- <img class="n-logo" src="img/now-logo.png" alt="" /> -->
             <h1 class="h1-seo">Fanware Today</h1>
-            <h3 class="h3">Grow your business through people powered Marketing</h3>
-          </div>
-
-          <div class="col-sm content-center">
-             <n-button :type="infType" class="custom-button" size="lg" @click="toggleInfluencer">Influencer</n-button>
-             <n-button :type="clientType" size="lg" @click="toggleClient">&nbsp;&nbsp;Client&nbsp;&nbsp;</n-button>
-          <!-- Nav tabs -->
-            <card class="card-signup" header-classes="text-center" color="orange">
-              <template slot="header">
-              </template>
-                <InfluencerForm v-if="isInfluencer" v-model="payload" :payload="payload" />
-                <ClientForm v-if="isClient" v-model="payload" :payload="payload" />
-                <div class="card-footer text-center">
-                  <n-button type="neutral" round size="lg" @click="submitForm()" >Get Started</n-button>
+            <h3 class="h2-seo">“ True influence is about leveraging authenticity. ” </h3>
+            <div class="row">
+              <div class="col-sm">
+                <h4 class="h4">Bring your brand story to life through harnessing the power of authentic connections. </h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm justify-content-md-center">
+                  <CircleCards value="Relevant" :size="size" />
+              </div>
+              <div class="col-sm justify-content-md-center">
+                  <CircleCards value="Clever" :size="size" />
+              </div>
+              <div class="col-sm justify-content-md-center">
+                  <CircleCards value="Result oriented" :size="size" /> 
+              </div>
+            </div>
+            <h4 class="h4"> 
+              Engage with powerful, vernacular influencers and activate target audience through strategic and creative influencers marketing campaigns.
+            </h4>
+            <n-button type="primary" round size="lg" @click="overlay = true" >Get Started</n-button>
+            <v-overlay :value="overlay" v-click-outside:[clickOutsideArgs]="toggleFormOverlay()" opacity="0.9">
+              <div class="row" >
+                <div class="col-sm">
+                  <v-btn
+                    icon
+                    @click="overlay = false"
+                    class="overlay-close-icon"
+                  >
+                    <v-icon>mdi-close</v-icon>
+                  </v-btn>
+                  <Forms />
                 </div>
-            </card>
+              </div>
+            </v-overlay>
           </div>
         </div>
-        </div>
-        <!-- <h6 class="category category-absolute">
-          Designed by
-          <a href="http://invisionapp.com/" target="_blank">
-            <img src="img/invision-white-slim.png" class="invision-logo" /> </a
-          >. Coded by
-          <a href="https://www.creative-tim.com" target="_blank">
-            <img
-              src="img/creative-tim-white-slim2.png"
-              class="creative-tim-logo"
-            /> </a
-          >.
-        </h6> -->
+      </div>
     </div>
     <div class="main">
       <div class="section section-images">
@@ -62,11 +69,12 @@
         </div>
       </div>
     </div>
-    <HomeSection id="home" />
+    <NucleoIconsSection id="influencers" v-on:toggle-overlay="overlay = true" />
+    <MicroInfluencerSection id="micro-influencers" />
     <WorkSection id="work" />
-    <NucleoIconsSection id="influencers" />
+    <CaseStudies id="case-studies" />
     <!-- <SlideGroupSection id="blogs" /> -->
-    <AboutSection id="about" />
+    <AboutSection id="about" v-on:toggle-overlay="overlay = true" />
     <ContactSection id="contact" />
   </div>
 </template>
@@ -82,16 +90,17 @@ import Typography from './components/Typography';
 import JavascriptComponents from './components/JavascriptComponents';
 import CarouselSection from './components/CarouselSection';
 import NucleoIconsSection from './components/NucleoIconsSection';
+import Forms from './components/Forms.vue'
 import SignupForm from './components/SignupForm';
-import ClientForm from './components/ClientForm';
-import InfluencerForm from './components/InfluencerForm';
 import ExamplesSection from './components/ExamplesSection';
 import DownloadSection from './components/DownloadSection';
 import SlideGroupSection from './components/SlideGroupSection';
+import MicroInfluencerSection from './components/MicroInfluencerSection.vue';
 import WorkSection from './components/WorkSection.vue';
-import HomeSection from './components/HomeSection.vue';
 import ContactSection from './components/ContactSection.vue';
-import { Card, FormGroupInput, FormGroupTextArea, Button, Tabs, TabPane } from '@/components';
+import CircleCards from './components/CircleCards.vue';
+import CaseStudies from './components/CaseStudies.vue';
+import { FormGroupInput, FormGroupTextArea, Button, Tabs, TabPane } from '@/components';
 
 export default {
   name: 'index',
@@ -112,58 +121,30 @@ export default {
     ExamplesSection,
     DownloadSection,
     SlideGroupSection,
-    Card,
     [Button.name]: Button,
     [FormGroupInput.name]: FormGroupInput,
     [FormGroupTextArea.name]: FormGroupTextArea,
-    ClientForm,
-    InfluencerForm,
     WorkSection,
-    HomeSection,
-    ContactSection
+    MicroInfluencerSection,
+    ContactSection,
+    CircleCards,
+    CaseStudies,
+    Forms
   },
-  data: function() {
+  data: function(vm) {
     return {
-    isInfluencer: true,
-    isClient: false,
-    infType: "primary",
-    clientType: "neutral",
-    payload: {},
-    loading: false
+      overlay: false,
+      clickOutsideArgs: { closeConditional: vm.closeConditional },
+      size: 170
     }
   },
   methods: {
-    toggleInfluencer: function() {
-      this.isClient = false; // Switching off client view
-      this.isInfluencer = true; // Switching on influencer view
-      this.clientType = "neutral" // changing client button colors
-      this.infType = "primary"; // chaning influencer button colors
-      this.clientPayload = this.payload // storing clientPayload
-      if (this.influencerPayload) { // if influencer payload exists then payload is set to influencer payload
-        this.payload = this.influencerPayload
-      }
-      else {
-        this.payload = {}; // else payload is set to empty object
-      }
+    closeConditional () {
+      console.log('maybe clicked outside')
+      return true
     },
-    toggleClient: function() {
-      this.isInfluencer = false; 
-      this.isClient = true;
-      this.infType = "neutral";
-      this.clientType = "primary";
-      this.influencerPayload = this.payload
-      if (this.clientPayload) {
-        this.payload = this.clientPayload
-      }
-      else {
-        this.payload = {};
-      }
-    },
-    submitForm: function() {
-      this.loading = true; // setting loading state true
-      console.log("submitting form with payload: ", payload)
-
-      this.loading = false // setting loading state false
+    toggleFormOverlay: function() {
+      console.log("Toggle Form Overlay ")
     }
   }
 };
@@ -172,7 +153,12 @@ export default {
 .h1-seo {
   color: #2C6975 !important;
 }
-.custom-button{
-  margin-right: 5% !important;
+.overlay-close-icon {
+
+  margin: 0px 0px -190px -400px !important;
+  z-index: 2;
+}
+.justify-content-md-center {
+  display: flex;
 }
 </style>

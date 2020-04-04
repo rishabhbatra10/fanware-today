@@ -5,7 +5,7 @@
         <div class="col-lg-6 col-md-12">
           <h2 class="title">Influencers</h2>
           <h5 class="description">
-            Content to be added
+            For every brand, there’s a perfect influencer and our data backed matching tool knows where to find them. Whether that means identifying influencers in niche segments or securing long-term ambassadors. We connect you with influencers who get people talking, and acting.
           </h5>
           <!-- <div class="nucleo-container">
                     <img v-lazy="'assetsimg/nucleo.svg'" alt="">
@@ -16,12 +16,15 @@
             target="_blank"
             >View Demo Icons</a
           >
+           -->
+        <div class="col-lg-6">
           <a
-            href="https://nucleoapp.com/?ref=1712"
             class="btn btn-primary btn-simple btn-round btn-lg"
-            target="_blank"
-            >View All Icons</a
-          > -->
+            @click="toggleOverlay()"
+            >
+              Learn more
+            </a>
+        </div>
         </div>
         <div class="col-lg-6 col-md-12">
           <div class="icons-container">
@@ -61,5 +64,17 @@
   </div>
 </template>
 <script>
-export default {};
+import { Button } from '@/components';
+
+export default {
+  components: {
+    [Button.name]: Button,
+  },
+  methods: {
+    toggleOverlay: function () {
+      console.log("triggering overlay...")
+      this.$emit("toggle-overlay")
+    }
+  }
+};
 </script>
