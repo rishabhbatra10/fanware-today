@@ -153,6 +153,23 @@ export default {
 };
 </script>
 <style>
+.v-overlay__scrim {
+  border-radius: inherit;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: inherit;
+  width: 100%;
+  will-change: opacity;
+}
+
+.v-overlay__content {
+  position: relative;
+}
+
 .hero-justify-center {
  justify-content: center;
 }
