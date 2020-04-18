@@ -17,7 +17,7 @@ export default {
   props: {
     bgColor: {
       type: String,
-      default: "#2C6975"
+      default: "#84c1ff"
     },
     color: {
       type: String,

@@ -1,7 +1,6 @@
 <template>
   <navbar
     position="fixed"
-    type="primary"
     :transparent="transparent"
     :color-on-scroll="colorOnScroll"
     menu-classes="ml-auto"
@@ -34,16 +33,6 @@
             <p>&nbsp;Home</p>
           </a>
         </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="#work"
-            target=""
-          >
-            <i class="fas fa-briefcase w3-large"></i>
-            <p>&nbsp;Work</p>
-          </a>
-        </li>
 
         <li class="nav-item">
           <a
@@ -55,6 +44,17 @@
               <use xlink:href="@/assets/icons/selfie.svg#Capa_1"></use>
             </svg>
             <p>&nbsp;&nbsp;Influencers</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            href="#work"
+            target=""
+          >
+            <i class="fas fa-briefcase w3-large"></i>
+            <p>&nbsp;Work</p>
           </a>
         </li>
         <!-- <li class="nav-item">

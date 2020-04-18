@@ -6,13 +6,13 @@
             <h2 class="title">Work</h2>
             <div class="row">
               <div class="col-sm justify-content-md-center">
-                  <CircleCards :size="size" value="Understanding brand goals and mapping it to right influencer" />
+                  <CircleCards :size="size" value="Understanding brand goals and mapping it to right influencer" :bgColor="bgColor"/>
               </div>
               <div class="col-sm justify-content-md-center">
-                  <CircleCards :size="size" value="Building brand awareness campaigns from scratch" />
+                  <CircleCards :size="size" value="Building brand awareness campaigns from scratch" :bgColor="bgColor" />
               </div>
               <div class="col-sm justify-content-md-center">
-                  <CircleCards :size="size" value="Conversion-focused campaigns for mature brands" /> 
+                  <CircleCards :size="size" value="Conversion-focused campaigns for mature brands" :bgColor="bgColor" /> 
               </div>
             </div>
           </div>
@@ -29,7 +29,8 @@ export default {
   },
   data: function(){
     return {
-      size: 260
+      size: 260,
+      bgColor: "#2C6975"
     }
   }
 }

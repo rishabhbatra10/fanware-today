@@ -6,33 +6,34 @@
         style="background-image:url('img/header.jpg')"
       >
       </parallax>
-      <div class="container" id="home">
-        <div class="row">
+      <div class="container" id="home" style="display: flex; align-items: center;">
+        <div class="row" style="margin-top: 20px;">
           <div class="col-sm">
           <!-- <img class="n-logo" src="img/now-logo.png" alt="" /> -->
-            <h1 class="h1-seo">Fanware Today</h1>
-            <h3 class="h2-seo">“ True influence is about leveraging authenticity. ” </h3>
             <div class="row">
               <div class="col-sm">
-                <h4 class="h4">Bring your brand story to life through harnessing the power of authentic connections. </h4>
+                <h3 class="h2-seo hero-qoute" :style="{color: heroTextColor}">“ True influence is about leveraging authenticity. ” </h3>
+                <h4 class="h4 hero-text" :style="{color: heroTextColor}">Bring your brand story to life through harnessing the power of authentic connections. </h4>
+                <h4 class="h4 hero-text" :style="{color: heroTextColor}"> 
+                  Engage with powerful, vernacular influencers and activate target audience through strategic and creative influencers marketing campaigns.
+                </h4>
+              </div>
+              <div class="col-sm">
+                <div class="row hero-justify-center">
+                  <div class="col-sm justify-content-md-center">
+                      <CircleCards value="Relevant" :size="size" bgColor="#FDCC0D" />
+                  </div>
+                  <div class="col-sm justify-content-md-center">
+                      <CircleCards value="Clever" :size="size" bgColor="#FDCC0D" />
+                  </div>
+                  <div class="col-sm justify-content-md-center">
+                      <CircleCards value="Result oriented" :size="size" bgColor="#FDCC0D" /> 
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-sm justify-content-md-center">
-                  <CircleCards value="Relevant" :size="size" />
-              </div>
-              <div class="col-sm justify-content-md-center">
-                  <CircleCards value="Clever" :size="size" />
-              </div>
-              <div class="col-sm justify-content-md-center">
-                  <CircleCards value="Result oriented" :size="size" /> 
-              </div>
-            </div>
-            <h4 class="h4"> 
-              Engage with powerful, vernacular influencers and activate target audience through strategic and creative influencers marketing campaigns.
-            </h4>
             <n-button type="primary" round size="lg" @click="overlay = true" >Get Started</n-button>
-            <v-overlay :value="overlay" v-click-outside:[clickOutsideArgs]="toggleFormOverlay()" opacity="0.9">
+            <v-overlay :value="overlay" v-click-outside:[clickOutsideArgs]="toggleFormOverlay()" opacity="0.9" z-index="2000">
               <div class="row" >
                 <div class="col-sm">
                   <v-btn
@@ -50,7 +51,7 @@
         </div>
       </div>
     </div>
-    <div class="main">
+    <!-- <div class="main">
       <div class="section section-images">
         <div class="container">
           <div class="row">
@@ -68,14 +69,14 @@
           </div>
         </div>
       </div>
-    </div>
-    <NucleoIconsSection id="influencers" v-on:toggle-overlay="overlay = true" />
-    <MicroInfluencerSection id="micro-influencers" />
+    </div> -->
+    <NucleoIconsSection id="influencers" v-on:toggle-micro="microInfluencer = true" />
+    
+    <MicroInfluencerSection id="micro-influencers" v-if="microInfluencer"/>
     <WorkSection id="work" />
-    <CaseStudies id="case-studies" />
-    <!-- <SlideGroupSection id="blogs" /> -->
+    <!-- <CaseStudies id="case-studies" /> -->
+    <SlideGroupSection id="case-studies" />
     <AboutSection id="about" v-on:toggle-overlay="overlay = true" />
-    <ContactSection id="contact" />
   </div>
 </template>
 <script>
@@ -135,7 +136,9 @@ export default {
     return {
       overlay: false,
       clickOutsideArgs: { closeConditional: vm.closeConditional },
-      size: 170
+      size: 170,
+      microInfluencer: false, 
+      heroTextColor: "#0b6623"
     }
   },
   methods: {
@@ -150,6 +153,25 @@ export default {
 };
 </script>
 <style>
+.hero-justify-center {
+ justify-content: center;
+}
+
+.hero-qoute {
+  font-weight: bold;
+  font-size: 45px;
+  font-family: Parisienne, Georgia, 'Times New Roman', Times, serif;
+}
+
+.hero-text {
+  font-weight:500 !important;
+}
+@media(max-width: 1000px) {
+  .hero-justify-center .col-sm {
+    display: contents;
+  }
+}
+
 .h1-seo {
   color: #2C6975 !important;
 }

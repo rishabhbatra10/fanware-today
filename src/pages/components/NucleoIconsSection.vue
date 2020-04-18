@@ -20,7 +20,7 @@
         <div class="col-lg-6">
           <a
             class="btn btn-primary btn-simple btn-round btn-lg"
-            @click="toggleOverlay()"
+            @click="toggleMicro()"
             >
               Learn more
             </a>
@@ -71,9 +71,9 @@ export default {
     [Button.name]: Button,
   },
   methods: {
-    toggleOverlay: function () {
+    toggleMicro: function () {
       console.log("triggering overlay...")
-      this.$emit("toggle-overlay")
+      this.$emit("toggle-micro")
     }
   }
 };

@@ -404,7 +404,7 @@
 }
 
 .section-tabs {
-  background: #EEEEEE;
+  background: #ffffff;
 }
 
 .section-pagination {
@@ -496,7 +496,8 @@
 }
 
 .section-nucleo-icons {
-  background: #CDE0C9;
+  background: #fff;
+  color: #2C6975;
 }
 
 .section-nucleo-icons .description {
@@ -504,8 +505,8 @@
 }
 
 .section-work {
-  background: #6BB2A0;
-  color: #ffffff;
+  background: #ffffff;
+  color: #2C6975;
 }
 
 .section-work .description {
@@ -522,7 +523,7 @@
 }
 
 .section-home{
-  background: #E0ECDE;
+  background: #FDFDFD;
   color: #2C6975;
 }
 
@@ -540,7 +541,7 @@
 }
 
 .svg-icon {
-  fill: #ffffff;
+  fill: #227AB4;
   height: 14px;
   width: 14px;
 }

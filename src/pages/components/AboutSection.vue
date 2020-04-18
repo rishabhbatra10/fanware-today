@@ -13,7 +13,7 @@ We handle it all: from developing creative concepts to campaign realisation. Rea
               class="btn btn-primary btn-simple btn-round btn-lg"
               @click="toggleOverlay()"
               >
-                Learn more
+                Talk to us
               </a>
           </div>
         </div>
