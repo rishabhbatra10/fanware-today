@@ -26,8 +26,9 @@
               >
 
                 <v-img
+                  class="logo-img"
                   :src="item.src"
-                  :width="item.width"
+                  :width="item.width * 0.75"
                 ></v-img>
                 
               </v-card>
@@ -84,23 +85,28 @@ Vue.use(Vuetify, {
     data: () => ({
       model: null,
       LogoList: [
-        {src: "img/logos/nyka_section.jpg", width: "200"},
-        {src: "img/logos/avail.png", width: "200"},
-        {src: "img/logos/bombay_shaving.jpeg", width: "200"},
-        {src: "img/logos/MPL_Crest.png", width: "200"},
-        {src: "img/logos/oyo.png", width: "200"},
-        {src: "img/logos/paytm_logo.png", width: "200"},
-        {src: "img/logos/zest_logo.png", width: "200"}
+        {src: "img/logos/nykaa.jpg", width: "200"},
+        {src: "img/logos/paytm.jpg", width: "200"},
+        {src: "img/logos/bsc.jpg", width: "200"},
+        {src: "img/logos/absolute_vodka.jpg", width: "200"},
+        {src: "img/logos/pankhuri.jpg", width: "200"},
+        {src: "img/logos/zest.jpg", width: "200"},
+        {src: "img/logos/mpl.jpg", width: "200"},
       ]
     }),
   }
 </script>
 <style>
 .v-card:not(.v-sheet--tile):not(.v-card--shaped){
-  margin-right: 5px;
-  margin-left: 5px;
+  margin-right: 20px;
+  margin-left: 20px;
   display: flex;
   align-items: center;
   box-shadow: none;
+}
+
+.logo-img .v-card > *:last-child:not(.v-btn):not(.v-chip) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 </style>

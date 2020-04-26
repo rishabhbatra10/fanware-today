@@ -1,13 +1,13 @@
 <template>
   <div class="col-sm content-center">
       <n-button :type="infType" class="custom-button" size="lg" @click="toggleInfluencer">Influencer</n-button>
-      <n-button :type="clientType" size="lg" @click="toggleClient">&nbsp;&nbsp;Client&nbsp;&nbsp;</n-button>
+      <n-button :type="clientType" size="lg" @click="toggleClient" active>&nbsp;&nbsp;Brand&nbsp;&nbsp;</n-button>
   <!-- Nav tabs -->
     <card class="card-signup" header-classes="text-center" color="orange">
       <template slot="header">
       </template>
-        <InfluencerForm v-if="isInfluencer" v-model="payload" :payload="payload" />
-        <ClientForm v-if="isClient" v-model="payload" :payload="payload" />
+        <InfluencerForm v-if="influencer" v-model="payload" :payload="payload" />
+        <ClientForm v-if="client" v-model="payload" :payload="payload" />
         <div class="card-footer text-center">
           <n-button type="neutral" round size="lg" @click="submitForm()" >Get Started</n-button>
         </div>
@@ -30,33 +30,39 @@ export default {
     Card,
 
   },
+  props: {
+    isInfluencer: {
+      type: Boolean,
+      default: true
+    }
+  },
   data: function() {
     return {
-    isInfluencer: true,
-    isClient: false,
-    infType: "primary",
-    clientType: "neutral",
-    payload: {},
-    loading: false
+      influencer: this.isInfluencer,
+      client: !this.isInfluencer,
+      infType: this.isInfluencer ? "primary": "neutral",
+      clientType: !this.isInfluencer ? "primary": "neutral",
+      payload: {},
+      loading: false
     }
   },
   methods: {
-        toggleInfluencer: function() {
-      this.isClient = false; // Switching off client view
-      this.isInfluencer = true; // Switching on influencer view
-      this.clientType = "neutral" // changing client button colors
-      this.infType = "primary"; // chaning influencer button colors
-      this.clientPayload = this.payload // storing clientPayload
-      if (this.influencerPayload) { // if influencer payload exists then payload is set to influencer payload
-        this.payload = this.influencerPayload
-      }
-      else {
-        this.payload = {}; // else payload is set to empty object
-      }
+      toggleInfluencer: function() {
+        this.client = false; // Switching off client view
+        this.influencer = true; // Switching on influencer view
+        this.clientType = "neutral" // changing client button colors
+        this.infType = "primary"; // chaning influencer button colors
+        this.clientPayload = this.payload // storing clientPayload
+        if (this.influencerPayload) { // if influencer payload exists then payload is set to influencer payload
+          this.payload = this.influencerPayload
+        }
+        else {
+          this.payload = {}; // else payload is set to empty object
+        }
     },
     toggleClient: function() {
-      this.isInfluencer = false; 
-      this.isClient = true;
+      this.influencer = false; 
+      this.client = true;
       this.infType = "neutral";
       this.clientType = "primary";
       this.influencerPayload = this.payload

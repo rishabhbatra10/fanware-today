@@ -7,7 +7,7 @@
       >
       </parallax>
       <div class="container" id="home" style="display: flex; align-items: center;">
-        <div class="row" style="margin-top: 20px;">
+        <div class="row" >
           <div class="col-sm">
           <!-- <img class="n-logo" src="img/now-logo.png" alt="" /> -->
             <div class="row">
@@ -17,33 +17,47 @@
                 <h4 class="h4 hero-text" :style="{color: heroTextColor}"> 
                   Engage with powerful, vernacular influencers and activate target audience through strategic and creative influencers marketing campaigns.
                 </h4>
+                <n-button 
+                 class="btn-hero" 
+                 round 
+                 size="lg" 
+                 @click="toggleFormOverlay('influencer')" 
+                 >
+                  I am an <strong>Influencer</strong>
+                </n-button>
+                <a
+                  class="btn-hero btn btn-simple btn-round btn-lg"
+                  @click="toggleFormOverlay('client')"
+                  >
+                  I am a <strong>Brand</strong>
+                </a>
               </div>
-              <div class="col-sm">
+              <div class="col-sm" style="align-items: center; display: flex;">
                 <div class="row hero-justify-center">
                   <div class="col-sm justify-content-md-center">
-                      <CircleCards value="Relevant" :size="size" bgColor="#FDCC0D" />
+                      <CircleCards value="Relevant" :size="size" :bgColor="circleBgColor" :color="circlesText" :fontWeight="circlesFontWeight" />
                   </div>
                   <div class="col-sm justify-content-md-center">
-                      <CircleCards value="Clever" :size="size" bgColor="#FDCC0D" />
+                      <CircleCards value="Clever" :size="size" :bgColor="circleBgColor" :color="circlesText" :fontWeight="circlesFontWeight" />
                   </div>
                   <div class="col-sm justify-content-md-center">
-                      <CircleCards value="Result oriented" :size="size" bgColor="#FDCC0D" /> 
+                      <CircleCards value="Result oriented" :size="size" :bgColor="circlesText" :color="circleBgColor" :fontWeight="circlesFontWeight" /> 
                   </div>
                 </div>
               </div>
             </div>
-            <n-button type="primary" round size="lg" @click="overlay = true" >Get Started</n-button>
-            <v-overlay :value="overlay" v-click-outside:[clickOutsideArgs]="toggleFormOverlay()" opacity="0.9" z-index="2000">
+            <v-overlay :value="overlay" opacity="0.9" z-index="2000" color="#ddd">
               <div class="row" >
                 <div class="col-sm">
                   <v-btn
                     icon
                     @click="overlay = false"
                     class="overlay-close-icon"
+                    color="#000"
                   >
                     <v-icon>mdi-close</v-icon>
                   </v-btn>
-                  <Forms />
+                  <Forms :isInfluencer="influencer" />
                 </div>
               </div>
             </v-overlay>
@@ -70,13 +84,12 @@
         </div>
       </div>
     </div> -->
-    <NucleoIconsSection id="influencers" v-on:toggle-micro="microInfluencer = true" />
-    
+    <NucleoIconsSection id="influencers" v-on:toggle-micro="() => {microInfluencer = true; this.$route.push({path:'#microInfluencer'})}"/>
     <MicroInfluencerSection id="micro-influencers" v-if="microInfluencer"/>
     <WorkSection id="work" />
-    <!-- <CaseStudies id="case-studies" /> -->
     <SlideGroupSection id="case-studies" />
-    <AboutSection id="about" v-on:toggle-overlay="overlay = true" />
+    <ChannelSection id="channels"/>
+    <AboutSection id="about" v-on:toggle-overlay="toggleFormOverlay('influencer')" />
   </div>
 </template>
 <script>
@@ -101,6 +114,7 @@ import WorkSection from './components/WorkSection.vue';
 import ContactSection from './components/ContactSection.vue';
 import CircleCards from './components/CircleCards.vue';
 import CaseStudies from './components/CaseStudies.vue';
+import ChannelSection from './components/ChannelSection.vue';
 import { FormGroupInput, FormGroupTextArea, Button, Tabs, TabPane } from '@/components';
 
 export default {
@@ -130,7 +144,8 @@ export default {
     ContactSection,
     CircleCards,
     CaseStudies,
-    Forms
+    Forms,
+    ChannelSection
   },
   data: function(vm) {
     return {
@@ -138,7 +153,11 @@ export default {
       clickOutsideArgs: { closeConditional: vm.closeConditional },
       size: 170,
       microInfluencer: false, 
-      heroTextColor: "#0b6623"
+      heroTextColor: "#2C6975",
+      circleBgColor: "#2C6975",
+      circlesText: "#ffb236",
+      circlesFontWeight: 700,
+      influencer: true
     }
   },
   methods: {
@@ -146,22 +165,20 @@ export default {
       console.log('maybe clicked outside')
       return true
     },
-    toggleFormOverlay: function() {
+    toggleFormOverlay: function(status) {
+      this.overlay = true;
+      if (status === 'influencer') {
+        this.influencer = true;
+      }
+      else if (status === 'client') {
+        this.influencer = false;
+      }
       console.log("Toggle Form Overlay ")
-    }
+    },
   }
 };
 </script>
 <style>
-
-.v-overlay--absolute {
-  position: absolute
-}
-
-.v-overlay--active {
-  pointer-events: auto
-}
-
 .v-overlay{
   align-items: center;
   border-radius: inherit;
@@ -174,6 +191,10 @@ export default {
   bottom: 0;
   pointer-events: none;
   transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1), z-index 1ms;
+}
+
+.v-overlay__content {
+  position: relative;
 }
 
 .v-overlay__scrim {
@@ -189,8 +210,12 @@ export default {
   will-change: opacity;
 }
 
-.v-overlay__content {
-  position: relative;
+.v-overlay--absolute {
+  position: absolute
+}
+
+.v-overlay--active {
+  pointer-events: auto
 }
 
 .hero-justify-center {
@@ -203,6 +228,18 @@ export default {
   font-family: Parisienne, Georgia, 'Times New Roman', Times, serif;
 }
 
+.btn-lg {
+  margin: 5px !important;
+}
+.btn-hero.btn-default {
+  background-color: #2C6975 !important;
+  color: #ffffff !important;
+}
+.btn-hero.btn-simple {
+  color: #2C6975 !important;
+  border-color: #2C6975 !important;
+}
+
 .hero-text {
   font-weight:500 !important;
 }
@@ -210,17 +247,24 @@ export default {
   .hero-justify-center .col-sm {
     display: contents;
   }
+  .page-header{
+    min-height: 1200px !important;
+  }
 }
 
 .h1-seo {
   color: #2C6975 !important;
 }
 .overlay-close-icon {
-
   margin: 0px 0px -190px -400px !important;
   z-index: 2;
 }
 .justify-content-md-center {
   display: flex;
+}
+
+.collage-img .v-content__wrap{
+  display: flex;
+  justify-content: center;
 }
 </style>

@@ -17,14 +17,6 @@
             >View Demo Icons</a
           >
            -->
-        <div class="col-lg-6">
-          <a
-            class="btn btn-primary btn-simple btn-round btn-lg"
-            @click="toggleMicro()"
-            >
-              Learn more
-            </a>
-        </div>
         </div>
         <div class="col-lg-6 col-md-12">
           <div class="icons-container">
@@ -60,6 +52,19 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <v-content class="collage-img">
+          <v-img src="img/collage.jpg" max-width="1000"/>
+        </v-content>
+      </div>
+      <div class="row btn-learn-more">
+        <a
+          class="btn btn-primary btn-simple btn-round btn-lg"
+          @click="toggleMicro()"
+          >
+            Learn more
+          </a>
+      </div>
     </div>
   </div>
 </template>
@@ -78,3 +83,9 @@ export default {
   }
 };
 </script>
+<style>
+.btn-learn-more {  
+  display: flex;
+  justify-content: center;
+}
+</style>
