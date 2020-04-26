@@ -541,9 +541,19 @@
 }
 
 .svg-icon {
-  fill: #227AB4;
+  fill: rgb(44, 105, 117);
   height: 14px;
   width: 14px;
+}
+
+.bg-white .svg-icon {
+  fill: #888888
+}
+
+@media screen and (max-width: 991px) {
+  .svg-icon {
+    fill: #ffffff
+  }
 }
 
 @media screen and (max-width: 991px) {
