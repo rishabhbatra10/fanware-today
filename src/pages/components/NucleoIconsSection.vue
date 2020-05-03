@@ -1,8 +1,9 @@
 <template>
-  <div class="section section-nucleo-icons">
+  <div class="section section-nucleo-icons" style="padding: 70px 0 0 0;">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-12 col-md-12" 
+             style="text-align: center;">
           <h2 class="title">Influencers</h2>
           <h5 class="description">
             For every brand, there’s a perfect influencer and our data backed matching tool knows where to find them. Whether that means identifying influencers in niche segments or securing long-term ambassadors. We connect you with influencers who get people talking, and acting.
@@ -18,7 +19,7 @@
           >
            -->
         </div>
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-6 col-md-12 icon-image">
           <div class="icons-container">
             <i class="fas fa-tshirt"></i>
             <!-- <i class="now-ui-icons ui-1_send"></i> -->
@@ -52,19 +53,6 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <v-content class="collage-img">
-          <v-img src="img/collage.jpg" max-width="1000"/>
-        </v-content>
-      </div>
-      <div class="row btn-learn-more">
-        <a
-          class="btn btn-primary btn-simple btn-round btn-lg"
-          @click="toggleMicro()"
-          >
-            Learn more
-          </a>
-      </div>
     </div>
   </div>
 </template>
@@ -84,7 +72,12 @@ export default {
 };
 </script>
 <style>
-.btn-learn-more {  
+
+.icon-image {
+  display: none;
+}
+
+.collage-img .v-content__wrap {
   display: flex;
   justify-content: center;
 }

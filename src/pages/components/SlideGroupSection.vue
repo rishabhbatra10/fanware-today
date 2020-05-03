@@ -86,12 +86,13 @@ Vue.use(Vuetify, {
       model: null,
       LogoList: [
         {src: "img/logos/nykaa.jpg", width: "200"},
-        {src: "img/logos/paytm.jpg", width: "200"},
-        {src: "img/logos/bsc.jpg", width: "200"},
-        {src: "img/logos/absolute_vodka.jpg", width: "200"},
-        {src: "img/logos/pankhuri.jpg", width: "200"},
-        {src: "img/logos/zest.jpg", width: "200"},
-        {src: "img/logos/mpl.jpg", width: "200"},
+        {src: "img/logos/paytm.png", width: "200"},
+        {src: "img/logos/bsc.png", width: "200"},
+        {src: "img/logos/oyo.png", width: "200"},
+        {src: "img/logos/absolute_vodka.png", width: "200"},
+        {src: "img/logos/pankhuri.png", width: "200"},
+        {src: "img/logos/zest.png", width: "200"},
+        {src: "img/logos/mpl.png", width: "200"},
       ]
     }),
   }

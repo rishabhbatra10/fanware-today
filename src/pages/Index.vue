@@ -12,7 +12,8 @@
           <!-- <img class="n-logo" src="img/now-logo.png" alt="" /> -->
             <div class="row">
               <div class="col-sm">
-                <h3 class="h2-seo hero-qoute" :style="{color: heroTextColor}">“ True influence is about leveraging authenticity. ” </h3>
+                <h3 class="h2-seo hero-qoute" :style="{color: heroTextColor}">
+                  “ True <span style="color: #ffbe00">influence</span> is about leveraging <span style="color: #ff9b30">authenticity</span>. ” </h3>
                 <h4 class="h4 hero-text" :style="{color: heroTextColor}">Bring your brand story to life through harnessing the power of authentic connections. </h4>
                 <h4 class="h4 hero-text" :style="{color: heroTextColor}"> 
                   Engage with powerful, vernacular influencers and activate target audience through strategic and creative influencers marketing campaigns.
@@ -32,7 +33,7 @@
                   I am a <strong>Brand</strong>
                 </a>
               </div>
-              <div class="col-sm" style="align-items: center; display: flex;">
+              <!-- <div class="col-sm" style="align-items: center; display: flex;">
                 <div class="row hero-justify-center">
                   <div class="col-sm justify-content-md-center">
                       <CircleCards value="Relevant" :size="size" :bgColor="circleBgColor" :color="circlesText" :fontWeight="circlesFontWeight" />
@@ -44,7 +45,7 @@
                       <CircleCards value="Result oriented" :size="size" :bgColor="circlesText" :color="circleBgColor" :fontWeight="circlesFontWeight" /> 
                   </div>
                 </div>
-              </div>
+              </div>  -->
             </div>
             <v-overlay :value="overlay" opacity="0.9" z-index="2000" color="#ddd">
               <div class="row" >
@@ -85,6 +86,19 @@
       </div>
     </div> -->
     <NucleoIconsSection id="influencers" v-on:toggle-micro="() => {microInfluencer = true; this.$route.push({path:'#microInfluencer'})}"/>
+    <div class="row" style="display: flex; justify-content: center;">
+        <v-content class="collage-img">
+          <v-img src="img/collage.jpg" />
+        </v-content>
+      </div>
+      <div class="row btn-learn-more justify-content-md-center">
+        <a
+          class="btn btn-primary btn-simple btn-round btn-lg"
+          @click="() => {microInfluencer = true; this.$route.push({path:'#microInfluencer'})}"
+          >
+            Learn more
+          </a>
+      </div>
     <MicroInfluencerSection id="micro-influencers" v-if="microInfluencer"/>
     <WorkSection id="work" />
     <SlideGroupSection id="case-studies" />
@@ -263,8 +277,7 @@ export default {
   display: flex;
 }
 
-.collage-img .v-content__wrap{
-  display: flex;
-  justify-content: center;
+#home span {
+  text-shadow: 0px 0px 5px #ffffff;
 }
 </style>

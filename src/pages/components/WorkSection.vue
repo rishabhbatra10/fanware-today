@@ -18,8 +18,8 @@
                   <CircleCards 
                    :size="size" 
                    value="Building brand awareness campaigns from scratch" 
-                   :bgColor="color" 
-                   :color="bgColor"
+                   :bgColor="bgColor" 
+                   :color="color"
                    :fontWeight="fontWeight"
                    />
               </div>
@@ -27,8 +27,8 @@
                   <CircleCards 
                    :size="size" 
                    value="Conversion-focused campaigns for mature brands" 
-                   :bgColor="bgColor" 
-                   :color="color"
+                   :bgColor="color" 
+                   :color="bgColor"
                    :fontWeight="fontWeight"
                    /> 
               </div>
