@@ -87,7 +87,7 @@
     </div> -->
     <NucleoIconsSection id="influencers" v-on:toggle-micro="() => {microInfluencer = true; this.$route.push({path:'#microInfluencer'})}"/>
     <div class="row" style="display: flex; justify-content: center;">
-        <v-content class="collage-img">
+        <v-content class="collage-img" style="max-width: 100%">
           <v-img src="img/collage.jpg" />
         </v-content>
       </div>
