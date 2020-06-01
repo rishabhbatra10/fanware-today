@@ -89,10 +89,10 @@ Vue.use(Vuetify, {
         {src: "img/logos/paytm.png", width: "200"},
         {src: "img/logos/bsc.png", width: "200"},
         {src: "img/logos/oyo.png", width: "200"},
-        {src: "img/logos/absolute_vodka.png", width: "200"},
         {src: "img/logos/pankhuri.png", width: "200"},
         {src: "img/logos/zest.png", width: "200"},
         {src: "img/logos/mpl.png", width: "200"},
+        {src: "img/logos/absolute_vodka.png", width: "200"},
       ]
     }),
   }

@@ -3,8 +3,8 @@
     <div class="page-header" filter-color="primary">
       <parallax
         class="page-header-image"
-        style="background-image:url('img/header.jpg')"
       >
+       <!-- style="background-image:url('img/header.jpg')" -->
       </parallax>
       <div class="container" id="home" style="display: flex; align-items: center;">
         <div class="row" >
@@ -13,11 +13,12 @@
             <div class="row">
               <div class="col-sm">
                 <h3 class="h2-seo hero-qoute" :style="{color: heroTextColor}">
-                  “ True <span style="color: #ffbe00">influence</span> is about leveraging <span style="color: #ff9b30">authenticity</span>. ” </h3>
+                  “ True <span style="color: #ffb554">influence</span> is about leveraging <span style="color: #fe5e51">authenticity</span>. ” </h3>
                 <h4 class="h4 hero-text" :style="{color: heroTextColor}">Bring your brand story to life through harnessing the power of authentic connections. </h4>
                 <h4 class="h4 hero-text" :style="{color: heroTextColor}"> 
                   Engage with powerful, vernacular influencers and activate target audience through strategic and creative influencers marketing campaigns.
                 </h4>
+                <br /><br />
                 <n-button 
                  class="btn-hero" 
                  round 
@@ -33,20 +34,21 @@
                   I am a <strong>Brand</strong>
                 </a>
               </div>
-              <!-- <div class="col-sm" style="align-items: center; display: flex;">
-                <div class="row hero-justify-center">
+            </div>
+            <br />
+            <div class="row" style="align-items: center;display: flex;justify-content: center;">
+                <div class="row hero-justify-center" style="max-width: 1000px">
                   <div class="col-sm justify-content-md-center">
                       <CircleCards value="Relevant" :size="size" :bgColor="circleBgColor" :color="circlesText" :fontWeight="circlesFontWeight" />
                   </div>
                   <div class="col-sm justify-content-md-center">
-                      <CircleCards value="Clever" :size="size" :bgColor="circleBgColor" :color="circlesText" :fontWeight="circlesFontWeight" />
+                      <CircleCards value="Clever" :size="size" :bgColor="circlesText" :color="circleBgColor" :fontWeight="circlesFontWeight" />
                   </div>
                   <div class="col-sm justify-content-md-center">
-                      <CircleCards value="Result oriented" :size="size" :bgColor="circlesText" :color="circleBgColor" :fontWeight="circlesFontWeight" /> 
+                      <CircleCards value="Result oriented" :size="size" :bgColor="circleBgColor" :color="circlesText" :fontWeight="circlesFontWeight" /> 
                   </div>
                 </div>
-              </div>  -->
-            </div>
+            </div> 
             <v-overlay :value="overlay" opacity="0.9" z-index="2000" color="#ddd">
               <div class="row" >
                 <div class="col-sm">
@@ -56,7 +58,7 @@
                     class="overlay-close-icon"
                     color="#000"
                   >
-                    <v-icon>mdi-close</v-icon>
+                    <v-icon color="#00323c">mdi-close</v-icon>
                   </v-btn>
                   <Forms :isInfluencer="influencer" />
                 </div>
@@ -169,7 +171,7 @@ export default {
       microInfluencer: false, 
       heroTextColor: "#2C6975",
       circleBgColor: "#2C6975",
-      circlesText: "#ffb236",
+      circlesText: "#ffb554",
       circlesFontWeight: 700,
       influencer: true
     }
@@ -262,7 +264,7 @@ export default {
     display: contents;
   }
   .page-header{
-    min-height: 1200px !important;
+    min-height: 1500px !important;
   }
 }
 
@@ -270,14 +272,14 @@ export default {
   color: #2C6975 !important;
 }
 .overlay-close-icon {
-  margin: 0px 0px -190px -400px !important;
+  margin: 0px 0px -320px -350px !important;
   z-index: 2;
 }
 .justify-content-md-center {
   display: flex;
 }
 
-#home span {
+.hero-qoute span {
   text-shadow: 0px 0px 5px #ffffff;
 }
 </style>
