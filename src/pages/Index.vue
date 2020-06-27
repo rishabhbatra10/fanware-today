@@ -60,7 +60,7 @@
                   >
                     <v-icon color="#00323c">mdi-close</v-icon>
                   </v-btn>
-                  <Forms :isInfluencer="influencer" />
+                  <Forms :isInfluencer="influencer" @close-overlay="overlay = false"/>
                 </div>
               </div>
             </v-overlay>

@@ -1,5 +1,11 @@
 <template>
   <div class="col-sm content-center">
+    <alert type="success" dismissible v-if="showAlert">
+      <div class="alert-icon">
+        <i class="now-ui-icons ui-2_like"></i>
+      </div>
+      <strong>Well done!</strong> You successfully registered with us. We will contact you shortly.  
+    </alert>
       <n-button :type="infType" class="custom-button" size="lg" @click="toggleInfluencer">Influencer</n-button>
       <n-button :type="clientType" size="lg" @click="toggleClient" active>&nbsp;&nbsp;Brand&nbsp;&nbsp;</n-button>
   <!-- Nav tabs -->
@@ -17,7 +23,7 @@
 <script>
 import ClientForm from './ClientForm';
 import InfluencerForm from './InfluencerForm';
-
+import { Alert } from '@/components';
 import { Card, Button} from '@/components';
 
 export default {
@@ -28,7 +34,7 @@ export default {
     // Inbuilt imports 
     [Button.name]: Button,
     Card,
-
+    Alert
   },
   props: {
     isInfluencer: {
@@ -43,7 +49,14 @@ export default {
       infType: this.isInfluencer ? "primary": "neutral",
       clientType: !this.isInfluencer ? "primary": "neutral",
       payload: {},
-      loading: false
+      loading: false,
+      showAlert: false
+    }
+  },
+  computed: {
+    endpoint: function () {
+      if (this.influencer) { return '/influencer' }
+      if (this.client) { return '/brand' }
     }
   },
   methods: {
@@ -75,9 +88,17 @@ export default {
     },
     submitForm: function() {
       this.loading = true; // setting loading state true
-      console.log("submitting form with payload: ", payload)
+      console.log("submitting form with payload: ", this.payload)
 
-      this.loading = false // setting loading state false
+      this.$http
+        .put(this.endpoint)
+        .send({ row: this.payload })
+        .set('Accept', 'application/json')
+        .then(res => {
+          this.showAlert = true;
+          this.loading = false // setting loading state false
+          this.$emit('close-overlay')
+        })
     }
   }
 }
