@@ -1,11 +1,11 @@
 <template>
   <div class="col-sm content-center">
-    <alert type="success" dismissible v-if="showAlert">
+    <!-- <alert type="success" dismissible v-if="showAlert">
       <div class="alert-icon">
         <i class="now-ui-icons ui-2_like"></i>
       </div>
       <strong>Well done!</strong> You successfully registered with us. We will contact you shortly.  
-    </alert>
+    </alert> -->
       <n-button :type="infType" class="custom-button" size="lg" @click="toggleInfluencer">Influencer</n-button>
       <n-button :type="clientType" size="lg" @click="toggleClient" active>&nbsp;&nbsp;Brand&nbsp;&nbsp;</n-button>
   <!-- Nav tabs -->
