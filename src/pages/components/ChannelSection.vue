@@ -6,13 +6,19 @@
             <h2 class="title">Channels</h2>
             <div class="row channels">
               <div class="col">
-                <v-icon class="mdi mdi-facebook" color="rgb(66, 103, 178)"  x-large></v-icon>
+                <a href="https://www.facebook.com/fanwaretoday/" target="_">
+                  <v-icon class="mdi mdi-facebook" color="rgb(66, 103, 178)"  x-large></v-icon>
+                </a>
               </div>
               <div class="col">
-                <v-img src="img/social/instagram.svg" width="40" style="margin: auto"> </v-img>
+                <a href="https://www.instagram.com/fanwaretoday/" target="_">
+                  <v-img src="img/social/instagram.svg" width="40" style="margin: auto"> </v-img>
+                </a>
               </div>
               <div class="col">
-                <v-icon class="mdi mdi-linkedin" color="rgb(40, 103, 178)" x-large></v-icon>
+                <a href="https://www.linkedin.com/company/31124334/admin/" target="_">
+                  <v-icon class="mdi mdi-linkedin" color="rgb(40, 103, 178)" x-large></v-icon>
+                </a>
               </div>
               <div class="col">
                 <v-icon class="mdi mdi-telegram" color="rgb(0, 136, 204)" x-large></v-icon>
@@ -67,5 +73,9 @@ export default {
 
 .tiktok-logo {
   border-radius: 10px;
+}
+
+.col a:hover, .col a:focus {
+  text-decoration: none;
 }
 </style>

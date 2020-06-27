@@ -11,7 +11,7 @@ Vue.config.productionTip = false;
 
 Vue.use(NowUiKit);
 Vue.use(VueSuperagent, {
-  baseUrl: 'http://127.0.0.1:5000/v1'
+  baseUrl: 'https://www.fanwaretoday.in/v1'
 })
 
 new Vue({
